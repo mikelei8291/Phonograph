@@ -25,14 +25,9 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
-      run: |
-        ./gradlew assembleRelease
-        sudo apt install tree
-        cd app/build/outputs
-        tree
-        cd ../../..
+      run: ./gradlew assembleRelease
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
       with:
         name: Phonograph_build
-        path: app/build/outputs/apk
+        path: app/build/outputs/apk/release/*.apk
