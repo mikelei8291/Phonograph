@@ -19,7 +19,7 @@ jobs:
         KEY_NAME: ${{ secrets.KEY_NAME }}
         KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
       run: |
-        openssl base64 -d -A "$SIGNING_KEY" -out keystore.jks
+        openssl base64 -d -A -out keystore.jks <<< "$SIGNING_KEY"
         cat > keystore.properties<<EOF
         storePassword=$KEY_PASSWORD
         keyPassword=$KEY_PASSWORD
