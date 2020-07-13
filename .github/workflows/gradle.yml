@@ -28,9 +28,11 @@ jobs:
       run: |
         ./gradlew assembleRelease
         sudo apt install tree
-        tree -L 5
+        cd app/build/outputs
+        tree
+        cd ../../..
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
       with:
         name: Phonograph_build
-        path: build/outputs/*.apk
+        path: app/build/outputs/apk
