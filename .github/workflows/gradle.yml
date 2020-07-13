@@ -21,11 +21,11 @@ jobs:
       run: |
         openssl base64 -d -A "$SIGNING_KEY" -out keystore.jks
         cat > keystore.properties<<EOF
-storePassword=$KEY_PASSWORD
-keyPassword=$KEY_PASSWORD
-keyAlias=$KEY_NAME
-storeFile=/home/runner/work/Phonograph/Phonograph/keystore.jks
-EOF
+        storePassword=$KEY_PASSWORD
+        keyPassword=$KEY_PASSWORD
+        keyAlias=$KEY_NAME
+        storeFile=/home/runner/work/Phonograph/Phonograph/keystore.jks
+        EOF
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
