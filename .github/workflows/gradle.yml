@@ -27,8 +27,8 @@ jobs:
     - name: Build with Gradle
       run: |
         ./gradlew assembleRelease
-        ls -la
-        tree
+        sudo apt install tree
+        tree -L 5
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2
       with:
